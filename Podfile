@@ -4,10 +4,10 @@ platform :ios, '9.0'
 target 'BStest' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'Katana'
-  pod 'Tempura'
-  pod 'PinLayout'
 
   # Pods for BStest
+  pod 'Katana'
+  pod 'Tempura'
+  pod 'PinLayout' 
 
 end
