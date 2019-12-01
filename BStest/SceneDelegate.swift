@@ -14,6 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, RootInstaller {
 
     var window: UIWindow?
     var store: Store<CounterState, DependenciesContainer>!
+    static var navigationController: UINavigationController!
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -31,7 +32,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, RootInstaller {
     func installRoot(identifier: RouteElementIdentifier, context: Any?, completion: () -> ()) -> Bool {
       if identifier == Screen.home.rawValue {
         let viewController = CounterViewController(store: self.store)
-        self.window?.rootViewController = viewController
+        SceneDelegate.navigationController = UINavigationController(rootViewController: viewController)
+        //navigationController.setNavigationBarHidden(true, animated: false)
+        self.window?.rootViewController = SceneDelegate.navigationController
         completion()
         return true
       }
